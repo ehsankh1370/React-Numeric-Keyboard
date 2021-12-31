@@ -1,7 +1,11 @@
 {
-  "version": "0.1.0",
+  "name": "react-numberic-keyboard",
+  "version": "0.0.1",
   "license": "MIT",
+  "description": "A numeric keyboard for React",
   "main": "dist/index.js",
+  "source": "src/index.tsx",
+  "sideEffects": false,
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -33,16 +37,32 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "numberic-keyboard",
-  "author": "ehsan",
-  "module": "dist/numberic-keyboard.esm.js",
+  "author": "Ehsan Khodadad <e.khodadad70@gmail.com>",
+  "module": "dist/react-numberic-keyboard.esm.js",
+  "keywords": [
+    "react",
+    "reactjs",
+    "digital",
+    "keyboard",
+    "onscreen",
+    "virtual",
+    "component",
+    "screen-keyboard",
+    "component",
+    "virtual-keyboard",
+    "touchscreen",
+    "touch-screen",
+    "numeric-keyboard",
+    "numericKeyboard",
+    "js"
+  ],
   "size-limit": [
     {
-      "path": "dist/numberic-keyboard.cjs.production.min.js",
+      "path": "dist/react-numberic-keyboard.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/numberic-keyboard.esm.js",
+      "path": "dist/react-numberic-keyboard.esm.js",
       "limit": "10 KB"
     }
   ],
@@ -57,5 +77,21 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^3.9.10"
+  },
+  "moduleDirectories": [
+    "node_modules",
+    "src"
+  ],
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.14",
+    "autoprefixer": "^10.4.1",
+    "cssnano": "^5.0.14",
+    "D": "^1.0.0",
+    "node-sass": "^7.0.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.45.0"
   }
 }

@@ -1,14 +1,10 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
+import NumericKeyboard from './components/numberic-keyboard';
 
 const App = () => {
-  return (
-    <div>
-      <Thing />
-    </div>
-  );
+  return <NumericKeyboard isOpen />;
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));

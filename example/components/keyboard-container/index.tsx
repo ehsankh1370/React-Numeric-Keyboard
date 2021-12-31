@@ -1,16 +1,16 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 //Components
 import KeyboardItem from '../keyboard-item';
 //Constants
 import { numbers, keyboardCharacters } from '../../constants';
 //Utils
-import { classNameGenerator } from '../../utils';
+import { classNameGenerator } from 'utils';
 //Styles
 import styles from './index.module.scss';
 //Types and Intefaces
-import { KeyboardContainerProps } from '../../types';
+import { KeyboardContainerProps } from 'types';
 
-const KeyboardContainer: FC<KeyboardContainerProps> = props => {
+const KeyboardContainer: FC<KeyboardContainerProps> = (props) => {
   const {
     onChange,
     keyboardContainerClassName,
@@ -25,10 +25,10 @@ const KeyboardContainer: FC<KeyboardContainerProps> = props => {
     if (!isKeyboardDisabled) {
       if (name === keyboardCharacters.Backspace) {
         onChange?.({ value: value.slice(0, -1), name });
-        setValue(prevValue => prevValue.slice(0, -1));
+        setValue((prevValue) => prevValue.slice(0, -1));
       } else {
         onChange?.({ value: value + name, name });
-        setValue(prevValue => prevValue + name);
+        setValue((prevValue) => prevValue + name);
       }
     }
   };
@@ -48,7 +48,7 @@ const KeyboardContainer: FC<KeyboardContainerProps> = props => {
             onClick={(): void => onKeyboardItemClick(item)}
             theme={theme}
           />
-        )
+        ),
       )}
 
       {leftIcon ? (

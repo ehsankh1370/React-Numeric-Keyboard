@@ -1,13 +1,12 @@
-import React, { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 //Components
 import KeyboardContainer from '../keyboard-container';
 //Utils
-import { classNameGenerator } from '../../utils';
+import { classNameGenerator } from 'utils';
 //types
-import { MainProps } from '../../types';
+import { MainProps } from 'types';
 //styles
 import styles from './index.module.scss';
-import '../../styles/index.scss';
 
 const DEFAULT_CLOSE_ANIMATION_TIME = 300;
 
