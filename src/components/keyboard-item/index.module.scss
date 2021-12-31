@@ -1,0 +1,43 @@
+@import 'styles';
+
+.KeyboardItem {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-evenly;
+  flex-basis: $default-basis;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: $font-large;
+  text-align: center;
+  font-weight: normal;
+  font-family: sans-serif;
+}
+
+.darkTheme {
+  &:active {
+    background: $dark-theme-active-color;
+  }
+  p {
+    color: $light;
+  }
+}
+.darkTheme {
+  &:active {
+    background: $dark-theme-active-color;
+  }
+  p {
+    color: $light;
+  }
+}
+.lightTheme {
+  &:active {
+    background: $light-theme-active-color;
+  }
+  p {
+    color: $dark;
+  }
+}

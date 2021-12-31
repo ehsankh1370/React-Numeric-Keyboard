@@ -1,0 +1,54 @@
+@import 'styles';
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  z-index: $default-z-index;
+  height: auto;
+}
+.darkTheme {
+  background-color: $dark;
+}
+
+.lightTheme {
+  background-color: $light;
+}
+
+.endRowsContainer {
+  flex-basis: $default-basis;
+  flex-grow: 1;
+}
+
+.startAnimation {
+  animation: start-animation normal linear;
+}
+.closeAnimation {
+  animation: close-animation normal linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes close-animation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(150%);
+  }
+}
+
+@keyframes start-animation {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
