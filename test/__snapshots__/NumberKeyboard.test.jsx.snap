@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test to match snapshot 1`] = `
+<div>
+  <div
+    class="lightTheme main startAnimation"
+    style="animation-duration: 0.3s;"
+  >
+    <div
+      class="itemsContainer"
+    >
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          1
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          2
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          3
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          4
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          5
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          6
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          7
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          8
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          9
+        </p>
+      </div>
+      <span
+        class="emptyField"
+      />
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <p
+          class="text"
+        >
+          0
+        </p>
+      </div>
+      <div
+        class="lightTheme KeyboardItem"
+      >
+        <img
+          alt="Backspace"
+          src=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

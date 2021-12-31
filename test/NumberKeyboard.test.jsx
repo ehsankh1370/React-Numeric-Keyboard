@@ -1,6 +1,7 @@
+import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import NumbericKeyboard from 'components/numberic-keyboard';
+import NumbericKeyboard from '../src/components/numberic-keyboard';
 
 describe('testing UI of the keyboard', () => {
   it('should render 1 to 9 numbers if keyboard is open', () => {
@@ -15,19 +16,19 @@ describe('testing UI of the keyboard', () => {
   });
   it('should accept custom class when provided', () => {
     const { container } = render(
-      <NumbericKeyboard isOpen className="custom" />,
+      <NumbericKeyboard isOpen className="custom" />
     );
     expect(container.firstChild).toHaveClass('custom');
   });
   it('should render custom backspace icon if provided', () => {
     const { queryByText } = render(
-      <NumbericKeyboard isOpen backSpaceIcon="my-custom-back" />,
+      <NumbericKeyboard isOpen backSpaceIcon="my-custom-back" />
     );
     expect(queryByText('my-custom-back')).toBeInTheDocument();
   });
   it('should render custom left icon if provided', () => {
     const { queryByText } = render(
-      <NumbericKeyboard isOpen leftIcon="my-left-icon" />,
+      <NumbericKeyboard isOpen leftIcon="my-left-icon" />
     );
     expect(queryByText('my-left-icon')).toBeInTheDocument();
   });
@@ -36,14 +37,14 @@ describe('testing UI of the keyboard', () => {
 describe('testing functionality of the keyboard', () => {
   it('should change value by clicking on the keyboard items', () => {
     const { getByText, getByAltText } = render(
-      <NumbericKeyboard isOpen onChange={onChange} />,
+      <NumbericKeyboard isOpen onChange={onChange} />
     );
     fireEvent.click(getByText('1'));
     fireEvent.click(getByText('2'));
     fireEvent.click(getByText('5'));
     fireEvent.click(getByAltText('Backspace'));
     fireEvent.click(getByText('9'));
-    function onChange({ value }: { value: string }) {
+    function onChange({ value }) {
       waitFor(() => {
         expect(value).toBe('129');
       });
@@ -52,19 +53,15 @@ describe('testing functionality of the keyboard', () => {
   it('keyboard should not be clickable if keyboard is disabled', () => {
     let values;
     const { getByText, rerender } = render(
-      <NumbericKeyboard
-        isOpen
-        onChange={onChange}
-        isKeyboardDisabled={false}
-      />,
+      <NumbericKeyboard isOpen onChange={onChange} isKeyboardDisabled={false} />
     );
     fireEvent.click(getByText('5'));
     fireEvent.click(getByText('4'));
     rerender(
-      <NumbericKeyboard isOpen onChange={onChange} isKeyboardDisabled={true} />,
+      <NumbericKeyboard isOpen onChange={onChange} isKeyboardDisabled={true} />
     );
     fireEvent.click(getByText('9'));
-    function onChange({ value }: { value: string }) {
+    function onChange({ value }) {
       values = value;
     }
     expect(values).toBe('54');

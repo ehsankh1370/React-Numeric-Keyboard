@@ -86,12 +86,20 @@
     "testEnvironment": "jsdom"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
     "@types/node": "^16.11.14",
     "autoprefixer": "^10.4.1",
+    "babel-jest": "^27.4.5",
     "cssnano": "^5.0.14",
     "D": "^1.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.4.5",
     "node-sass": "^7.0.1",
     "rollup-plugin-postcss": "^4.0.2",
-    "sass": "^1.45.0"
+    "sass": "^1.45.0",
+    "ts-jest": "^27.1.2"
   }
 }
