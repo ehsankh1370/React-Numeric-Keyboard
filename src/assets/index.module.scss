@@ -1,0 +1,129 @@
+//colors
+$light: #ffffff;
+$dark: #1e1e1e;
+$dark-theme-active-color: #706b6b;
+$light-theme-active-color: #bdc3c7;
+//font size
+$font-large: 30px;
+//safe areas
+$safe-area-inset-bottom: env(safe-area-inset-bottom);
+//flex basis
+$default-basis: 33.333333%;
+//z-index
+$default-z-index: 100;
+$overlay-z-index: 101;
+//width
+$max-keyboard-width: 300px;
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  z-index: $default-z-index;
+  height: auto;
+}
+.darkTheme {
+  background-color: $dark;
+}
+
+.lightTheme {
+  background-color: $light;
+}
+
+.endRowsContainer {
+  flex-basis: $default-basis;
+  flex-grow: 1;
+}
+
+.startAnimation {
+  animation: start-animation normal linear;
+}
+.closeAnimation {
+  animation: close-animation normal linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes close-animation {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(150%);
+  }
+}
+
+@keyframes start-animation {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.KeyboardItem {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-evenly;
+  flex-basis: $default-basis;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.text {
+  font-size: $font-large;
+  text-align: center;
+  font-weight: normal;
+  font-family: sans-serif;
+}
+
+.darkThemeKeyboardItem {
+  &:active {
+    background: $dark-theme-active-color;
+  }
+  p {
+    color: $light;
+  }
+}
+.lightThemeKeyboardItem {
+  &:active {
+    background: $light-theme-active-color;
+  }
+  p {
+    color: $dark;
+  }
+}
+
+.itemsContainer {
+  padding-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  max-width: $max-keyboard-width;
+  padding-bottom: calc($safe-area-inset-bottom + 15px);
+}
+
+.lastRow {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.emptyField {
+  flex-basis: $default-basis;
+}
+
+.disabledLayout {
+  position: absolute;
+  z-index: $overlay-z-index;
+  width: 100%;
+  height: 100%;
+}

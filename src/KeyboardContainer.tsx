@@ -1,14 +1,14 @@
 import React, { FC, useState } from 'react';
 //Components
-import KeyboardItem from '../keyboard-item';
+import KeyboardItem from './KeyboardItem';
 //Constants
-import { numbers, keyboardCharacters } from '../../constants';
+import { numbers, keyboardCharacters } from './constants';
 //Utils
-import { classNameGenerator } from '../../utils';
+import { classNameGenerator } from './utils';
 //Styles
-import styles from './index.module.scss';
+import styles from './assets/index.module.scss';
 //Types and Intefaces
-import { KeyboardContainerProps } from '../../types';
+import { KeyboardContainerProps } from './types';
 
 const KeyboardContainer: FC<KeyboardContainerProps> = props => {
   const {

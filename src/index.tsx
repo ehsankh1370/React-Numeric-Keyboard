@@ -1,1 +1,2 @@
-export * from './components/numberic-keyboard';
+export * from './NumbericKeyboard';
+export * from './types';
