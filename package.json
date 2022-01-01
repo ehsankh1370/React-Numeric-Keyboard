@@ -1,5 +1,5 @@
 {
-  "name": "react-numberic-keyboard",
+  "name": "react-numeric-keyboard",
   "version": "0.0.1",
   "license": "MIT",
   "description": "A numeric keyboard for React",
@@ -8,18 +8,17 @@
   "sideEffects": false,
   "typings": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build --tsconfig tsconfig.json",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "npm run build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
@@ -38,7 +37,7 @@
     "trailingComma": "es5"
   },
   "author": "Ehsan Khodadad <e.khodadad70@gmail.com>",
-  "module": "dist/react-numberic-keyboard.esm.js",
+  "module": "dist/react-numeric-keyboard.esm.js",
   "keywords": [
     "react",
     "reactjs",
@@ -58,11 +57,11 @@
   ],
   "size-limit": [
     {
-      "path": "dist/react-numberic-keyboard.cjs.production.min.js",
+      "path": "dist/react-numeric-keyboard.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/react-numberic-keyboard.esm.js",
+      "path": "dist/react-numeric-keyboard.esm.js",
       "limit": "10 KB"
     }
   ],

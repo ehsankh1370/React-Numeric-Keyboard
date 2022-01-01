@@ -1,12 +1,17 @@
 import React, { FC } from 'react';
-//Types and Interfaces
-import { KeyboardItemProps } from './types';
 //Constants
 import { keyboardCharacters } from './constants';
 //Utils
 import { classNameGenerator } from './utils';
 //Styles
 import styles from './assets/index.module.scss';
+//Types
+import { MainProps } from '.';
+
+type KeyboardItemProps = Pick<MainProps, 'backSpaceIcon' | 'theme'> & {
+  item?: string;
+  onClick?: (value: string | undefined) => void;
+};
 
 const KeyboardItem: FC<KeyboardItemProps> = (props): JSX.Element => {
   const { item, onClick, backSpaceIcon, children, theme } = props;

@@ -7,10 +7,21 @@ import { numbers, keyboardCharacters } from './constants';
 import { classNameGenerator } from './utils';
 //Styles
 import styles from './assets/index.module.scss';
-//Types and Intefaces
-import { KeyboardContainerProps } from './types';
+
+import { MainProps } from '.';
+
+type KeyboardContainerProps = Pick<
+  MainProps,
+  | 'isKeyboardDisabled'
+  | 'onChange'
+  | 'keyboardContainerClassName'
+  | 'backSpaceIcon'
+  | 'leftIcon'
+  | 'theme'
+>;
 
 const KeyboardContainer: FC<KeyboardContainerProps> = props => {
+  const [value, setValue] = useState<string>('');
   const {
     onChange,
     keyboardContainerClassName,
@@ -19,7 +30,6 @@ const KeyboardContainer: FC<KeyboardContainerProps> = props => {
     backSpaceIcon,
     theme,
   } = props;
-  const [value, setValue] = useState<string>('');
 
   const onKeyboardItemClick = (name: string): void => {
     if (!isKeyboardDisabled) {

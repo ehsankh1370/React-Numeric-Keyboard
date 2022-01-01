@@ -10,7 +10,7 @@ exports[`snapshot test to match snapshot 1`] = `
       class="itemsContainer"
     >
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -19,7 +19,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -28,7 +28,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -37,7 +37,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -46,7 +46,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -55,7 +55,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -64,7 +64,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -73,7 +73,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -82,7 +82,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -94,7 +94,7 @@ exports[`snapshot test to match snapshot 1`] = `
         class="emptyField"
       />
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <p
           class="text"
@@ -103,11 +103,11 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightTheme KeyboardItem"
+        class="lightThemeKeyboardItem KeyboardItem"
       >
         <img
           alt="Backspace"
-          src=""
+          src="./assets/light-backspace.png"
         />
       </div>
     </div>

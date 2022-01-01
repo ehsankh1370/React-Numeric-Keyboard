@@ -1,2 +1,2 @@
-export * from './NumbericKeyboard';
-export * from './types';
+export * from './NumericKeyboard';
+
