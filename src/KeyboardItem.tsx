@@ -18,10 +18,6 @@ const KeyboardItem: FC<KeyboardItemProps> = ({
   children,
   theme,
 }): JSX.Element => {
-  const onKeyboardItemClick = (): void => {
-    onClick?.(item);
-  };
-
   const classNames = classNameGenerator([
     theme === 'light'
       ? styles.lightThemeKeyboardItem
@@ -29,11 +25,17 @@ const KeyboardItem: FC<KeyboardItemProps> = ({
     styles.KeyboardItem,
   ]);
 
+  const onKeyboardItemClick = (): void => onClick?.(item);
+
   return (
-    <div className={classNames} onClick={onKeyboardItemClick}>
+    <div
+      data-keyboard-item={item}
+      className={classNames}
+      onClick={onKeyboardItemClick}
+    >
       {item ? (
         <>
-          {item === keyboardCharacters.[''] ? (
+          {item === keyboardCharacters.Backspace ? (
             backSpaceIcon || (
               <img
                 src={theme === 'light' ? LightBackSpace : DarkBackSpace}

@@ -107,7 +107,7 @@ exports[`snapshot test to match snapshot 1`] = `
       >
         <img
           alt="Backspace"
-          src="./assets/light-backspace.png"
+          src=""
         />
       </div>
     </div>

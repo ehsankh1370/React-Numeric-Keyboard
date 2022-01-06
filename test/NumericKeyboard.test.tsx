@@ -12,7 +12,7 @@ describe('testing UI of the keyboard', () => {
   });
   it('should not render viewable keyboard item if isOpen props is false', () => {
     const { queryByText } = render(<NumericKeyboard isOpen={false} />);
-    expect(queryByText('5')).not.toHaveValue('5');
+    expect(queryByText('5')).toBeFalsy();
   });
   it('should accept custom class when provided', () => {
     const { container } = render(<NumericKeyboard isOpen className="custom" />);
@@ -42,7 +42,7 @@ describe('testing functionality of the keyboard', () => {
     fireEvent.click(getByText('5'));
     fireEvent.click(getByAltText('Backspace'));
     fireEvent.click(getByText('9'));
-    function onChange({ value }) {
+    function onChange({ value }: { value: string }) {
       waitFor(() => {
         expect(value).toBe('129');
       });
@@ -59,7 +59,7 @@ describe('testing functionality of the keyboard', () => {
       <NumericKeyboard isOpen onChange={onChange} isKeyboardDisabled={true} />
     );
     fireEvent.click(getByText('9'));
-    function onChange({ value }) {
+    function onChange({ value }: { value: string }) {
       values = value;
     }
     expect(values).toBe('54');

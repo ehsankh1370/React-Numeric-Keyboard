@@ -8,7 +8,7 @@ export interface KeyboardProps {
   /**
    * REQUIRED: Control the onChange event of Keyboard by providing the total value and the single character the user clicks on
    */
-  onChange: ({ value, name }: { value: string; name: string }) => void;
+  onChange?: ({ value, name }: { value: string; name: string }) => void;
   /**
    * OPTIONAL: whether keyboard's opening and closing has transition animation
    */
@@ -38,10 +38,6 @@ export interface KeyboardProps {
    */
   style?: CSSProperties;
   /**
-   * OPTIONAL: ClassName of the numeric keyboard itself
-   */
-  keyboardContainerClassName?: string;
-  /**
    * OPTIONAL: Specify the theme of the keyboard which is light or dark
    */
   theme?: 'light' | 'dark';
@@ -61,10 +57,5 @@ export type KeyboardItemProps = Pick<
 
 export type KeyboardContainerProps = Pick<
   KeyboardProps,
-  | 'isKeyboardDisabled'
-  | 'onChange'
-  | 'keyboardContainerClassName'
-  | 'backSpaceIcon'
-  | 'leftIcon'
-  | 'theme'
+  'isKeyboardDisabled' | 'onChange' | 'backSpaceIcon' | 'leftIcon' | 'theme'
 >;

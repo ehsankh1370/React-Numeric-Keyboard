@@ -3,18 +3,13 @@ import React, { FC, useState } from 'react';
 import KeyboardItem from './KeyboardItem';
 //Constants
 import { numbers, keyboardCharacters } from './constants';
-//Utils
-import { classNameGenerator } from './utils';
 //Styles
 import styles from './assets/index.module.scss';
 //Types
 import { KeyboardContainerProps } from './types';
 
-
-
 const KeyboardContainer: FC<KeyboardContainerProps> = ({
   onChange,
-  keyboardContainerClassName,
   isKeyboardDisabled,
   leftIcon,
   backSpaceIcon,
@@ -22,24 +17,22 @@ const KeyboardContainer: FC<KeyboardContainerProps> = ({
 }) => {
   const [value, setValue] = useState<string>('');
 
+  const sliceValue = (value: string): string => value.slice(0, -1);
+
   const onKeyboardItemClick = (name: string): void => {
     if (!isKeyboardDisabled) {
       if (name === keyboardCharacters.Backspace) {
-        onChange?.({ value: value.slice(0, -1), name });
-        setValue(prevValue => prevValue.slice(0, -1));
+        onChange?.({ value: sliceValue(value), name });
+        setValue(prevValue => sliceValue(prevValue));
       } else {
         onChange?.({ value: value + name, name });
         setValue(prevValue => prevValue + name);
       }
     }
   };
-  const keyboardContainer = classNameGenerator([
-    styles.itemsContainer,
-    keyboardContainerClassName,
-  ]);
 
   return (
-    <div className={keyboardContainer}>
+    <div data-keyboard-container className={styles.itemsContainer}>
       {isKeyboardDisabled && <div className={styles.disabledLayout} />}
       {numbers.map(
         (item: string): JSX.Element => (
@@ -58,13 +51,15 @@ const KeyboardContainer: FC<KeyboardContainerProps> = ({
         <span className={styles.emptyField} />
       )}
       <KeyboardItem
-        item={keyboardCharacters.zero}
-        onClick={(): void => onKeyboardItemClick(keyboardCharacters.zero)}
+        item={keyboardCharacters['0']}
+        onClick={(): void => onKeyboardItemClick(keyboardCharacters['0'])}
         theme={theme}
       />
       <KeyboardItem
-        item={keyboardCharacters.Backspace}
-        onClick={(): void => onKeyboardItemClick(keyboardCharacters.Backspace)}
+        item={keyboardCharacters['Backspace']}
+        onClick={(): void =>
+          onKeyboardItemClick(keyboardCharacters['Backspace'])
+        }
         backSpaceIcon={backSpaceIcon}
         theme={theme}
       />

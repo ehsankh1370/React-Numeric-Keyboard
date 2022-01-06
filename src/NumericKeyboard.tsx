@@ -20,17 +20,31 @@ const NumericKeyboard: FC<KeyboardProps> = ({
   backSpaceIcon,
   leftIcon,
   style,
-  keyboardContainerClassName,
   theme = 'light',
   ref,
 }): JSX.Element | null => {
   const [isShow, setIsShow] = useState<boolean>(isOpen);
-  const prevIsOpen = usePrevious(isOpen);
+  const prevIsShow = usePrevious<boolean>(isShow);
+
+  useEffect(() => {
+    if (!isOpen && hasTransition) {
+      let timer = setTimeout(() => {
+        setIsShow(false);
+      }, transitionTime);
+      return () => {
+        clearTimeout(timer);
+        setIsShow(false);
+      };
+    } else {
+      setIsShow(isOpen);
+    }
+  }, [isOpen]);
+
   const animationClassesGenerator = (): string | boolean => {
     if (hasTransition) {
       return isOpen
         ? styles.startAnimation
-        : prevIsOpen === true
+        : prevIsShow === true
         ? styles.closeAnimation
         : '';
     }
@@ -42,17 +56,6 @@ const NumericKeyboard: FC<KeyboardProps> = ({
     animationClassesGenerator(),
     className,
   ]);
-
-  useEffect(() => {
-    if (!isOpen && hasTransition) {
-      let timer = setTimeout(() => {
-        setIsShow(false);
-      }, transitionTime);
-      return clearTimeout(timer);
-    } else {
-      setIsShow(isOpen);
-    }
-  }, [isOpen]);
 
   return isShow ? (
     <div
@@ -68,7 +71,6 @@ const NumericKeyboard: FC<KeyboardProps> = ({
         backSpaceIcon={backSpaceIcon}
         isKeyboardDisabled={isKeyboardDisabled}
         leftIcon={leftIcon}
-        keyboardContainerClassName={keyboardContainerClassName}
         theme={theme}
       />
     </div>

@@ -1,30 +1,38 @@
-import { FC } from 'react';
-//Types and Interfaces
-import { KeyboardItemProps } from '../../types';
-//Styles
-import styles from './index.module.scss';
-//Assets
-import LightBackSpace from '../../assets/light-backspace.png';
-import DarkBackSpace from '../../assets/dark-backspace.png';
+import React, { FC } from 'react';
 //Constants
 import { keyboardCharacters } from '../../constants';
 //Utils
 import { classNameGenerator } from '../../utils';
+//Assets
+import LightBackSpace from './assets/light-backspace.png';
+import DarkBackSpace from './assets/dark-backspace.png';
+//Styles
+import styles from './assets/index.module.scss';
+//Types
+import { KeyboardItemProps } from '../../types';
 
-const KeyboardItem: FC<KeyboardItemProps> = (props): JSX.Element => {
-  const { item, onClick, backSpaceIcon, children, theme } = props;
-
-  const onKeyboardItemClick = (): void => {
-    onClick?.(item);
-  };
-
+const KeyboardItem: FC<KeyboardItemProps> = ({
+  item,
+  onClick,
+  backSpaceIcon,
+  children,
+  theme,
+}): JSX.Element => {
   const classNames = classNameGenerator([
-    theme === 'light' ? styles.lightTheme : styles.darkTheme,
+    theme === 'light'
+      ? styles.lightThemeKeyboardItem
+      : styles.darkThemeKeyboardItem,
     styles.KeyboardItem,
   ]);
 
+  const onKeyboardItemClick = (): void => onClick?.(item);
+
   return (
-    <div className={classNames} onClick={onKeyboardItemClick}>
+    <div
+      data-keyboard-item={item}
+      className={classNames}
+      onClick={onKeyboardItemClick}
+    >
       {item ? (
         <>
           {item === keyboardCharacters.Backspace ? (
