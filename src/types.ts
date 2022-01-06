@@ -8,7 +8,7 @@ export interface KeyboardProps {
   /**
    * REQUIRED: Control the onChange event of Keyboard by providing the total value and the single character the user clicks on
    */
-  onChange?: ({ value, name }: { value: string; name: string }) => void;
+  onChange: ({ value, name }: { value: string; name: string }) => void;
   /**
    * OPTIONAL: whether keyboard's opening and closing has transition animation
    */
