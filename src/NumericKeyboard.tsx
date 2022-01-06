@@ -21,7 +21,6 @@ const NumericKeyboard: FC<KeyboardProps> = ({
   leftIcon,
   style,
   theme = 'light',
-  ref,
 }): JSX.Element | null => {
   const [isShow, setIsShow] = useState<boolean>(isOpen);
   const prevIsShow = usePrevious<boolean>(isShow);
@@ -64,7 +63,6 @@ const NumericKeyboard: FC<KeyboardProps> = ({
         animationDuration: `${transitionTime / 1000}s`,
         ...style,
       }}
-      ref={ref}
     >
       <KeyboardContainer
         onChange={onChange}

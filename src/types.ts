@@ -1,4 +1,4 @@
-import { CSSProperties, RefObject } from 'react';
+import { CSSProperties } from 'react';
 
 export interface KeyboardProps {
   /**
@@ -41,10 +41,6 @@ export interface KeyboardProps {
    * OPTIONAL: Specify the theme of the keyboard which is light or dark
    */
   theme?: 'light' | 'dark';
-  /**
-   * OPTIONAL: The Ref of the keyboard
-   */
-  ref?: RefObject<HTMLDivElement>;
 }
 
 export type KeyboardItemProps = Pick<

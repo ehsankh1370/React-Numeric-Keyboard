@@ -1,160 +1,110 @@
-# TSDX React User Guide
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+# React Numeric Keyboard
 
-> This TSDX setup is meant for developing React component libraries (not apps!) that can be published to NPM. If you’re looking to build a React-based app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
+A numeric virtual keyboard for React. Especially for Progressive Web Applications and mobile views.
 
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
 
-## Commands
+## Demo
 
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
+![React-Numeric-Keyboard](https://github.com/ehsankh1370/ehsankh1370/blob/679c5f8d5eac96aa43dd481ac137c8118f028f5c/demo.gif)
+## Installation
 
-The recommended workflow is to run TSDX in one terminal:
-
-```bash
-npm start # or yarn start
-```
-
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
-
-Then run the example inside another:
+Install using npm
 
 ```bash
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
+  npm i react-numeric-keyboard
 ```
+    
+## Getting Started
 
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, we use [Parcel's aliasing](https://parceljs.org/module_resolution.html#aliases).
 
-To do a one-off build, use `npm run build` or `yarn build`.
+## Basic Usage
 
-To run tests, use `npm test` or `yarn test`.
+```javascript
+import {useState} from 'react'
+import { NumericKeyboard } from "react-numeric-keyboard";
 
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle analysis
-
-Calculates the real cost of your library using [size-limit](https://github.com/ai/size-limit) with `npm run size` and visulize it with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
-
-#### React Testing Library
-
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
-
-### Rollup
-
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
-
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
+function App() {
+ const [isOpen,setIsOpen] = useState(false)
+ const onChange = ({value,name})=>{
+     console.log(value,name)
+ }
+  return <NumericKeyboard isOpen={isOpen} onChange={onChange}/>
 }
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
 
-## Module Formats
+## API Reference
 
-CJS, ESModules, and UMD module formats are supported.
+#### isOpen
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+| props | Type      | Description   |
+| :-------- | :-------  | :------------------------- |
+| `isOpen` | `boolean` |      **Required**. Open or close the keyboard |
 
-## Deploying the Example Playground
+#### onChange({value,name})
 
-The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
+| props | Type      | Description   |
+| :-------- | :------- |  :------------------------- |
+| `onChange({value,name})`      | `VoidFunction`  | **Required**. Getting the total value and the name of each keyboard characters|
 
-```bash
-cd example # if not already in the example folder
-npm run build # builds to dist
-netlify deploy # deploy the dist folder
-```
+#### hasTransition
 
-Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
+| props | Type   | default    | Description   |
+| :-------- | :------- | :----- | :------------------------- |
+| `hasTransition` | `boolean` | true| **Optional**. The keyboard's opening and closing transition |
 
-```bash
-netlify init
-# build command: yarn build && cd example && yarn && yarn build
-# directory to deploy: example/dist
-# pick yes for netlify.toml
-```
+#### transitionTime(milliseconds)
 
-## Named Exports
+| props | Type   | default    | Description   |
+| :-------- | :------- | :----- | :------------------------- |
+| `transitionTime` | `number` |300ms| **Optional**. The keyboard's transition time. Only works if hasTransition prop is true.|
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
 
-## Including Styles
+#### className
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+| props | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `className` | `string` | **Optional**. The keyboard's classname|
 
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+#### style
 
-## Publishing to NPM
+| props | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `style` | `CSSProperties` | **Optional**. The keyboard's style|
 
-We recommend using [np](https://github.com/sindresorhus/np).
+#### isKeyboardDisabled
+| props | Type   | default    | Description   |
+| :-------- | :------- | :----- | :------------------------- |
+| `isKeyboardDisabled` | `boolean` |false| **Optional**. Prevents keyboard from being clicked or touched|
 
-## Usage with Lerna
+#### backSpaceIcon
 
-When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
+| props | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `backSpaceIcon` | `ReactNode` | **Optional**. Custom backspace icon|
 
-The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
+#### leftIcon
 
-Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
+| props | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `leftIcon` | `ReactNode` | **Optional**. Custom left corner icon|
 
-```diff
-   "alias": {
--    "react": "../node_modules/react",
--    "react-dom": "../node_modules/react-dom"
-+    "react": "../../../node_modules/react",
-+    "react-dom": "../../../node_modules/react-dom"
-   },
-```
+#### theme
 
-An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
+| props | Type   | default    | Description   |
+| :-------- | :------- | :----- | :------------------------- |
+| `theme` | `'light' or 'dark'` |light| **Optional**. Keyboard's theme.|
+
+
+
+
+## Authors
+
+- [@ehsankh1370](https://www.github.com/ehsankh1370)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
