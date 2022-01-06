@@ -2,29 +2,28 @@ import { FC, useState, useEffect } from 'react';
 //Components
 import KeyboardContainer from '../keyboard-container';
 //Utils
-import { classNameGenerator } from 'utils';
+import { classNameGenerator } from '../../utils';
 //types
-import { MainProps } from 'types';
+import { KeyboardProps } from '../../types';
 //styles
 import styles from './index.module.scss';
 
 const DEFAULT_CLOSE_ANIMATION_TIME = 300;
 
-const NumericKeyboard: FC<MainProps> = (props): JSX.Element | null => {
-  const {
-    isOpen,
-    className,
-    hasInitialTransition = true,
-    transitionTime = DEFAULT_CLOSE_ANIMATION_TIME,
-    onChange,
-    isKeyboardDisabled = false,
-    backSpaceIcon,
-    leftIcon,
-    style,
-    keyboardContainerClassName,
-    theme = 'light',
-    ref,
-  } = props;
+const NumericKeyboard: FC<KeyboardProps> = ({
+  isOpen,
+  className,
+  hasInitialTransition = true,
+  transitionTime = DEFAULT_CLOSE_ANIMATION_TIME,
+  onChange,
+  isKeyboardDisabled = false,
+  backSpaceIcon,
+  leftIcon,
+  style,
+  keyboardContainerClassName,
+  theme = 'light',
+  ref,
+}): JSX.Element | null => {
   const [isShow, setIsShow] = useState(true);
 
   const animationClassesGenerator = (): string | boolean => {

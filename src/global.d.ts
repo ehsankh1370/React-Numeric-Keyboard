@@ -1,14 +1,12 @@
 declare module '*.scss' {
-  const content: { [className: string]: string };
-  export = content;
-}
-declare module '*.svg' {
-  const content: any;
+  const content: Record<string, string>;
   export default content;
 }
-declare module '*.jpg' {
-  export default '' as string;
+declare module '*.svg' {
+  const content: string;
+  export default content;
 }
 declare module '*.png' {
-  export default '' as string;
+  const content: string;
+  export default content;
 }

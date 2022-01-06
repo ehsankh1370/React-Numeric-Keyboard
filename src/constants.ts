@@ -1,6 +1,11 @@
-//fill array of numbers from 1 to 9
+/**
+ * fill array of numbers from 1 to 9
+ */
 const numbers = Array.from({ length: 9 }, (_, i) => (i + 1).toString());
 
+/**
+ * Keyboard possible characters
+ */
 const keyboardCharacters = {
   zero: '0',
   one: '1',
@@ -15,4 +20,10 @@ const keyboardCharacters = {
   Backspace: 'Backspace',
 };
 
-export { numbers, keyboardCharacters };
+/**
+ * Default keyboard transition time
+ */
+
+const DEFAULT_CLOSE_ANIMATION_TIME = 300;
+
+export { numbers, keyboardCharacters, DEFAULT_CLOSE_ANIMATION_TIME };

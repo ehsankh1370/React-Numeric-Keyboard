@@ -1,54 +1,38 @@
-import React, {
-  FC,
-  useState,
-  useEffect,
-  CSSProperties,
-  RefObject,
-} from 'react';
+import React, { FC, useState, useEffect } from 'react';
 //Components
 import KeyboardContainer from './KeyboardContainer';
 //Utils
-import { classNameGenerator } from './utils';
+import { classNameGenerator, usePrevious } from './utils';
 //styles
 import styles from './assets/index.module.scss';
+//Types
+import { KeyboardProps } from './types';
+//Constants
+import { DEFAULT_CLOSE_ANIMATION_TIME } from './constants';
 
-export interface MainProps {
-  isOpen: boolean;
-  hasInitialTransition?: boolean;
-  transitionTime?: number;
-  className?: string;
-  isKeyboardDisabled?: boolean;
-  onChange?: ({ value, name }: { value: string; name: string }) => void;
-  backSpaceIcon?: React.ReactNode;
-  leftIcon?: React.ReactNode;
-  style?: CSSProperties;
-  keyboardContainerClassName?: string;
-  theme?: 'light' | 'dark';
-  ref?: RefObject<HTMLDivElement>;
-}
-
-const DEFAULT_CLOSE_ANIMATION_TIME = 300;
-
-const NumericKeyboard: FC<MainProps> = (props): JSX.Element | null => {
-  const [isShow, setIsShow] = useState(true);
-  const {
-    isOpen,
-    className,
-    hasInitialTransition = true,
-    transitionTime = DEFAULT_CLOSE_ANIMATION_TIME,
-    onChange,
-    isKeyboardDisabled = false,
-    backSpaceIcon,
-    leftIcon,
-    style,
-    keyboardContainerClassName,
-    theme = 'light',
-    ref,
-  } = props;
-
+const NumericKeyboard: FC<KeyboardProps> = ({
+  isOpen,
+  className,
+  hasTransition = true,
+  transitionTime = DEFAULT_CLOSE_ANIMATION_TIME,
+  onChange,
+  isKeyboardDisabled = false,
+  backSpaceIcon,
+  leftIcon,
+  style,
+  keyboardContainerClassName,
+  theme = 'light',
+  ref,
+}): JSX.Element | null => {
+  const [isShow, setIsShow] = useState<boolean>(isOpen);
+  const prevIsOpen = usePrevious(isOpen);
   const animationClassesGenerator = (): string | boolean => {
-    if (hasInitialTransition) {
-      return isOpen ? styles.startAnimation : styles.closeAnimation;
+    if (hasTransition) {
+      return isOpen
+        ? styles.startAnimation
+        : prevIsOpen === true
+        ? styles.closeAnimation
+        : '';
     }
     return false;
   };
@@ -60,7 +44,7 @@ const NumericKeyboard: FC<MainProps> = (props): JSX.Element | null => {
   ]);
 
   useEffect(() => {
-    if (!isOpen && hasInitialTransition) {
+    if (!isOpen && hasTransition) {
       let timer = setTimeout(() => {
         setIsShow(false);
       }, transitionTime);

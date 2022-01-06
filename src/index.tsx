@@ -1,2 +1,1 @@
-export * from './NumericKeyboard';
-
+export { NumericKeyboard } from './NumericKeyboard';

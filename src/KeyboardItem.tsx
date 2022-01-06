@@ -3,19 +3,21 @@ import React, { FC } from 'react';
 import { keyboardCharacters } from './constants';
 //Utils
 import { classNameGenerator } from './utils';
+//Assets
+import LightBackSpace from './assets/light-backspace.png';
+import DarkBackSpace from './assets/dark-backspace.png';
 //Styles
 import styles from './assets/index.module.scss';
 //Types
-import { MainProps } from '.';
+import { KeyboardItemProps } from './types';
 
-type KeyboardItemProps = Pick<MainProps, 'backSpaceIcon' | 'theme'> & {
-  item?: string;
-  onClick?: (value: string | undefined) => void;
-};
-
-const KeyboardItem: FC<KeyboardItemProps> = (props): JSX.Element => {
-  const { item, onClick, backSpaceIcon, children, theme } = props;
-
+const KeyboardItem: FC<KeyboardItemProps> = ({
+  item,
+  onClick,
+  backSpaceIcon,
+  children,
+  theme,
+}): JSX.Element => {
   const onKeyboardItemClick = (): void => {
     onClick?.(item);
   };
@@ -31,14 +33,10 @@ const KeyboardItem: FC<KeyboardItemProps> = (props): JSX.Element => {
     <div className={classNames} onClick={onKeyboardItemClick}>
       {item ? (
         <>
-          {item === keyboardCharacters.Backspace ? (
+          {item === keyboardCharacters.[''] ? (
             backSpaceIcon || (
               <img
-                src={
-                  theme === 'light'
-                    ? './assets/light-backspace.png'
-                    : './assets/dark-backspace.png'
-                }
+                src={theme === 'light' ? LightBackSpace : DarkBackSpace}
                 alt={keyboardCharacters.Backspace}
               />
             )
