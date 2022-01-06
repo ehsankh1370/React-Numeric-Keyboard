@@ -40,6 +40,10 @@
   },
   "author": "Ehsan Khodadad <e.khodadad70@gmail.com>",
   "module": "dist/react-numeric-keyboard.esm.js",
+  "bugs": {
+    "url": "https://github.com/ehsankh1370/react-numeric-keyboard/issues"
+  },
+  "homepage": "https://github.com/ehsankh1370/react-numeric-keyboard",
   "keywords": [
     "react",
     "reactjs",
