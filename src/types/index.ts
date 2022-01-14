@@ -1,4 +1,4 @@
-import { CSSProperties, RefObject } from 'react';
+import { CSSProperties } from 'react';
 
 export interface KeyboardProps {
   /**
@@ -9,6 +9,10 @@ export interface KeyboardProps {
    * REQUIRED: Control the onChange event of Keyboard by providing the total value and the single character the user clicks on
    */
   onChange: ({ value, name }: { value: string; name: string }) => void;
+  /**
+   * OPTIONAL: keyboard's mode *** Default is simple
+   */
+  mode?: 'simple' | 'spaced';
   /**
    * OPTIONAL: whether keyboard's opening and closing has transition animation
    */
@@ -22,40 +26,45 @@ export interface KeyboardProps {
    */
   className?: string;
   /**
-   * OPTIONAL: Lock keyboard from touching and interacting
+   * OPTIONAL: ClassName of the keyboard's items container
    */
+  containerClassName?: string;
+  /**
+   * OPTIONAL: Locks keyboard and prevents touching and interacting
+   */
+
   isKeyboardDisabled?: boolean;
   /**
    * OPTIONAL: Customize the keyboard's backspace icon  - a react element
    */
   backSpaceIcon?: React.ReactNode;
   /**
-   * OPTIONAL: Placing a custom in the left bottom corner of the keyboard
+   * OPTIONAL: Placing a custom element in the left bottom corner of the keyboard
    */
   leftIcon?: React.ReactNode;
   /**
    * OPTIONAL: Style of the outer element of keyboard
    */
   style?: CSSProperties;
+
   /**
-   * OPTIONAL: Specify the theme of the keyboard which is light or dark
+   * OPTIONAL: An optional header above the keyboard
    */
-  theme?: 'light' | 'dark';
-  /**
-   * OPTIONAL: The Ref of the keyboard
-   */
-  ref?: RefObject<HTMLDivElement>;
+  header?: React.ReactNode;
 }
 
-export type KeyboardItemProps = Pick<
-  KeyboardProps,
-  'backSpaceIcon' | 'theme'
-> & {
-  item?: string;
-  onClick?: (value: string | undefined) => void;
+export type KeyboardItemProps = Pick<KeyboardProps, 'mode'> & {
+  onClick?: VoidFunction;
+  isActive?: boolean;
+  isNumber?: boolean;
 };
 
 export type KeyboardContainerProps = Pick<
   KeyboardProps,
-  'isKeyboardDisabled' | 'onChange' | 'backSpaceIcon' | 'leftIcon' | 'theme'
+  | 'isKeyboardDisabled'
+  | 'onChange'
+  | 'backSpaceIcon'
+  | 'leftIcon'
+  | 'mode'
+  | 'containerClassName'
 >;

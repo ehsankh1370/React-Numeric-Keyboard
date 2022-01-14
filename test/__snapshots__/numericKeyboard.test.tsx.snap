@@ -3,14 +3,15 @@
 exports[`snapshot test to match snapshot 1`] = `
 <div>
   <div
-    class="lightTheme main startAnimation"
+    class="main startAnimation"
     style="animation-duration: 0.3s;"
   >
     <div
       class="itemsContainer"
+      data-keyboard-container="true"
     >
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -19,7 +20,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -28,7 +29,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -37,7 +38,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -46,7 +47,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -55,7 +56,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -64,7 +65,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -73,7 +74,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -82,7 +83,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -90,11 +91,11 @@ exports[`snapshot test to match snapshot 1`] = `
           9
         </p>
       </div>
-      <span
-        class="emptyField"
+      <div
+        class="KeyboardItem deactiveMode"
       />
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem isNumber"
       >
         <p
           class="text"
@@ -103,7 +104,7 @@ exports[`snapshot test to match snapshot 1`] = `
         </p>
       </div>
       <div
-        class="lightThemeKeyboardItem KeyboardItem"
+        class="KeyboardItem"
       >
         <img
           alt="Backspace"

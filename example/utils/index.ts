@@ -7,7 +7,7 @@ import type { MutableRefObject } from 'react';
  * @returns {string}
  */
 export const classNameGenerator = (
-  classes: Array<string | boolean | undefined>
+  classes: Array<string | boolean | undefined | null>
 ): string => {
   const classNames = classes.filter(Boolean);
   return classNames.join(' ');

@@ -1,14 +1,14 @@
 import React, { FC, useState, useEffect } from 'react';
 //Components
-import KeyboardContainer from './KeyboardContainer';
+import KeyboardContainer from '../keyboard-container';
 //Utils
-import { classNameGenerator, usePrevious } from './utils';
+import { classNameGenerator, usePrevious } from '../../utils';
 //styles
-import styles from './assets/index.module.scss';
+import styles from './index.module.scss';
 //Types
-import { KeyboardProps } from './types';
+import { KeyboardProps } from '../../types';
 //Constants
-import { DEFAULT_CLOSE_ANIMATION_TIME } from './constants';
+import { DEFAULT_CLOSE_ANIMATION_TIME } from '../../constants';
 
 const NumericKeyboard: FC<KeyboardProps> = ({
   isOpen,
@@ -20,7 +20,9 @@ const NumericKeyboard: FC<KeyboardProps> = ({
   backSpaceIcon,
   leftIcon,
   style,
-  theme = 'light',
+  header,
+  mode = 'simple',
+  containerClassName
 }): JSX.Element | null => {
   const [isShow, setIsShow] = useState<boolean>(isOpen);
   const prevIsShow = usePrevious<boolean>(isShow);
@@ -50,7 +52,6 @@ const NumericKeyboard: FC<KeyboardProps> = ({
     return false;
   };
   const mainClassName = classNameGenerator([
-    theme === 'light' ? styles.lightTheme : styles.darkTheme,
     styles.main,
     animationClassesGenerator(),
     className,
@@ -64,12 +65,15 @@ const NumericKeyboard: FC<KeyboardProps> = ({
         ...style,
       }}
     >
+      {header && header}
+
       <KeyboardContainer
         onChange={onChange}
         backSpaceIcon={backSpaceIcon}
         isKeyboardDisabled={isKeyboardDisabled}
         leftIcon={leftIcon}
-        theme={theme}
+        mode={mode}
+        containerClassName={containerClassName}
       />
     </div>
   ) : null;

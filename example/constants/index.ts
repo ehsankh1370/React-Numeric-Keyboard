@@ -1,12 +1,12 @@
 /**
  * fill array of numbers from 1 to 9
  */
-export const numbers = Array.from({ length: 9 }, (_, i) => (i + 1).toString());
+const numbers = Array.from({ length: 9 }, (_, i) => (i + 1).toString());
 
 /**
  * Keyboard possible characters
  */
-export const keyboardCharacters = {
+const keyboardCharacters = {
   '0': '0',
   '1': '1',
   '2': '2',
@@ -24,4 +24,6 @@ export const keyboardCharacters = {
  * Default keyboard transition time
  */
 
-export const DEFAULT_CLOSE_ANIMATION_TIME = 300;
+const DEFAULT_CLOSE_ANIMATION_TIME = 300;
+
+export { numbers, keyboardCharacters, DEFAULT_CLOSE_ANIMATION_TIME };
