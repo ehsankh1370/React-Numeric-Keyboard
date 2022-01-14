@@ -6,7 +6,8 @@ A numeric virtual keyboard for React. Especially for Progressive Web Application
 
 ## Demo
 
-![React-Numeric-Keyboard](https://github.com/ehsankh1370/ehsankh1370/blob/679c5f8d5eac96aa43dd481ac137c8118f028f5c/demo.gif)
+![React-Numeric-Keyboard](https://github.com/ehsankh1370/ehsankh1370/blob/99c28e421e148c050bb6d8afaa90f8383ed12266/simple.gif)
+![React-Numeric-Keyboard](https://github.com/ehsankh1370/ehsankh1370/blob/99c28e421e148c050bb6d8afaa90f8383ed12266/spaced.gif)
 ## Installation
 
 Install using npm
@@ -36,65 +37,24 @@ function App() {
 
 ## API Reference
 
-#### isOpen
-
-| props | Type      | Description   |
-| :-------- | :-------  | :------------------------- |
-| `isOpen` | `boolean` |      **Required**. Open or close the keyboard |
-
-#### onChange({value,name})
-
-| props | Type      | Description   |
-| :-------- | :------- |  :------------------------- |
-| `onChange({value,name})`      | `VoidFunction`  | **Required**. Getting the total value and the name of each keyboard characters|
-
-#### hasTransition
-
-| props | Type   | default    | Description   |
-| :-------- | :------- | :----- | :------------------------- |
-| `hasTransition` | `boolean` | true| **Optional**. The keyboard's opening and closing transition |
-
-#### transitionTime(milliseconds)
-
-| props | Type   | default    | Description   |
-| :-------- | :------- | :----- | :------------------------- |
-| `transitionTime` | `number` |300ms| **Optional**. The keyboard's transition time. Only works if hasTransition prop is true.|
 
 
-#### className
+| props | Type     | default    | Description   |
+| :-------- | :-------  |:-------| :------------------------- |
+| `isOpen` | `boolean` |  |     **Required**. Open or close the keyboard |
+| `onChange({value,name})`      | `VoidFunction` | | **Required**. Getting the total value and the name of each keyboard characters|
+| `mode`      | `simple` or `spaced` | `simple` | Keyboard's mode|
+| `hasTransition` | `boolean` | `true` | keyboard's opening and closing transition |
+| `transitionTime` | `number` |300ms|  keyboard's transition time. Only works if hasTransition prop is true.|
+| `className` | `string` | |   keyboard's classname|
+| `style` | `CSSProperties` | | keyboard's style|
+| `isKeyboardDisabled` | `boolean` |`false`| Prevents keyboard's items from being clicked or touched|
+| `backSpaceIcon` | `ReactNode` | | Custom backspace icon|
+| `leftIcon` | `ReactNode` | | Custom left corner icon|
+| `containerClassName` | `string` | | ClassName of the keyboard's items container|
+| `header` | `ReactNode` | | An optional header above the keyboard. Note that to prevent your header's overflow use `box-sizing:border-box` in your header component|
 
-| props | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `className` | `string` | **Optional**. The keyboard's classname|
 
-#### style
-
-| props | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `style` | `CSSProperties` | **Optional**. The keyboard's style|
-
-#### isKeyboardDisabled
-| props | Type   | default    | Description   |
-| :-------- | :------- | :----- | :------------------------- |
-| `isKeyboardDisabled` | `boolean` |false| **Optional**. Prevents keyboard from being clicked or touched|
-
-#### backSpaceIcon
-
-| props | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `backSpaceIcon` | `ReactNode` | **Optional**. Custom backspace icon|
-
-#### leftIcon
-
-| props | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `leftIcon` | `ReactNode` | **Optional**. Custom left corner icon|
-
-#### theme
-
-| props | Type   | default    | Description   |
-| :-------- | :------- | :----- | :------------------------- |
-| `theme` | `'light' or 'dark'` |light| **Optional**. Keyboard's theme.|
 
 
 
@@ -107,4 +67,10 @@ function App() {
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Roadmap
+
+- Add more keyboard's view
+
 
