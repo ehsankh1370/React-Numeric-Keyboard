@@ -10,10 +10,15 @@ A numeric virtual keyboard for React. Especially for Progressive Web Application
 ![React-Numeric-Keyboard](https://github.com/ehsankh1370/ehsankh1370/blob/99c28e421e148c050bb6d8afaa90f8383ed12266/spaced.gif)
 ## Installation
 
-Install using npm
+ using npm
 
 ```bash
   npm i react-numeric-keyboard
+```
+ using yarn
+
+```bash
+  yarn add react-numeric-keyboard
 ```
     
 ## Getting Started
