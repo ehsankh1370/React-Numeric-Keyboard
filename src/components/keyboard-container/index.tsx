@@ -54,7 +54,7 @@ const KeyboardContainer: FC<KeyboardContainerProps> = ({
           >
             <p className={styles.text}>{item}</p>
           </KeyboardItem>
-        ),
+        )
       )}
       <KeyboardItem isActive={Boolean(leftIcon)} isNumber={false} mode={mode}>
         {leftIcon}

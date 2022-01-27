@@ -16,12 +16,13 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build --tsconfig tsconfig.json",
+    "build": "tsdx build --tsconfig tsconfig.json --strict --jsx React.createElement --raw --sourcemap false --compress",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "npm run build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config .prettierrc"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -77,6 +78,7 @@
     "@types/react-dom": "^17.0.11",
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^7.0.4",
+    "prettier": "2.5.1",
     "rollup-plugin-image-files": "^1.4.2",
     "size-limit": "^7.0.5",
     "tsdx": "^0.14.1",

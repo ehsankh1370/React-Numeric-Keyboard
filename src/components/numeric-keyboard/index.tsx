@@ -22,7 +22,8 @@ const NumericKeyboard: FC<KeyboardProps> = ({
   style,
   header,
   mode = 'simple',
-  containerClassName
+  containerClassName,
+  fullWidth = false,
 }): JSX.Element | null => {
   const [isShow, setIsShow] = useState<boolean>(isOpen);
   const prevIsShow = usePrevious<boolean>(isShow);
@@ -54,6 +55,7 @@ const NumericKeyboard: FC<KeyboardProps> = ({
   const mainClassName = classNameGenerator([
     styles.main,
     animationClassesGenerator(),
+    fullWidth && styles.fullWidth,
     className,
   ]);
 
