@@ -46,11 +46,14 @@ export interface KeyboardProps {
    * OPTIONAL: Style of the outer element of keyboard
    */
   style?: CSSProperties;
-
   /**
    * OPTIONAL: An optional header above the keyboard
    */
   header?: React.ReactNode;
+  /**
+   * Optional: whether fill the available space or not
+   */
+  fullWidth?: boolean;
 }
 
 export type KeyboardItemProps = Pick<KeyboardProps, 'mode'> & {

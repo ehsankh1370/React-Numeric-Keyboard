@@ -10,7 +10,7 @@ import styles from './index.module.scss';
 //Types
 import { KeyboardContainerProps } from '../../types';
 //Utils
-import { classNameGenerator } from 'utils';
+import { classNameGenerator } from '../../utils';
 
 const KeyboardContainer: FC<KeyboardContainerProps> = ({
   onChange,
@@ -54,7 +54,7 @@ const KeyboardContainer: FC<KeyboardContainerProps> = ({
           >
             <p className={styles.text}>{item}</p>
           </KeyboardItem>
-        ),
+        )
       )}
       <KeyboardItem isActive={Boolean(leftIcon)} isNumber={false} mode={mode}>
         {leftIcon}
